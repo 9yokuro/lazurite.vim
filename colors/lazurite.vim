@@ -9,26 +9,26 @@ endif
 g:colors_name = "lazurite"
 
 const colors: dict<string> = {
-  foreground: "#ffffff",
+  foreground: "#FFFFFF",
   background: "#121212",
 
-  black: "#171c21",
-  red: "#c24f5d",
-  green: "#4fc287",
-  yellow: "#ffbe98",
-  blue: "#4f8bc2",
-  magenta: "#be99ff",
-  cyan: "#99daff",
-  white: "#eff4f9",
+  black: "#171C21",
+  red: "#C24F5D",
+  green: "#4FC287",
+  yellow: "#FFBE98",
+  blue: "#4F8BC2",
+  magenta: "#BE99FF",
+  cyan: "#99DAFF",
+  white: "#EFF4F9",
 
-  bright_black: "#242b33",
-  bright_red: "#e65e6e",
-  bright_green: "#5ee6a0",
-  bright_yellow: "#ffcfb3",
-  bright_blue: "#5ea4e6",
-  bright_magenta: "#cfb3ff",
-  bright_cyan: "#b3e3ff",
-  bright_white: "#f5faff",
+  bright_black: "#242B33",
+  bright_red: "#E65E6E",
+  bright_green: "#5EE6A0",
+  bright_yellow: "#FFCFB3",
+  bright_blue: "#5EA4E6",
+  bright_magenta: "#CFB3FF",
+  bright_cyan: "#B3E3FF",
+  bright_white: "#F5FAFF",
 }
 
 const fg_foreground: string = "guifg=" .. colors.foreground
@@ -79,11 +79,35 @@ const none: string = "cterm=NONE gui=NONE"
 
 execute "highlight Comment" fg_bright_white bg_none italic
 execute "highlight Constant" fg_bright_cyan bg_none none
+highlight link String Constant
+highlight link Character Constant
+highlight link Number Constant
+highlight link Boolean Constant
+highlight link Float Constant
 execute "highlight Identifier" fg_blue bg_none none
+highlight link Function Identifier
 execute "highlight Statement" fg_bright_magenta bg_none none
+highlight link Conditional Statement
+highlight link Repeat Statement
+highlight link Label Statement
+highlight link Operator Statement
+highlight link Keyword Statement
+highlight link Exception Statement
 execute "highlight PreProc" fg_cyan bg_none italic
+highlight link Include PreProc
+highlight link Define PreProc
+highlight link Macro PreProc
+highlight link PreCondit PreProc
 execute "highlight Type" fg_bright_blue bg_none none
+highlight link StorageClass Type
+highlight link Structure Type
+highlight link Typedef Type
 execute "highlight Special" fg_magenta bg_none none
+highlight link SpecialChar Special
+highlight link Tag Special
+highlight link Delimiter Special
+highlight link SpecialComment Special
+highlight link Debug Special
 execute "highlight Underlined" fg_foreground bg_none underline
 execute "highlight Error" fg_red bg_none none
 execute "highlight Todo" fg_black bg_yellow none
@@ -99,6 +123,7 @@ execute "highlight DiffAdd" fg_bright_black bg_cyan none
 execute "highlight DiffChange" fg_bright_black bg_yellow none
 execute "highlight DiffDelete" fg_bright_black bg_bright_blue none
 execute "highlight DiffText" fg_bright_black bg_red none
+highlight link EndOfBuffer NonText
 execute "highlight ErrorMsg" fg_foreground bg_red none
 execute "highlight VertSplit" fg_bright_white bg_none none
 execute "highlight Folded" fg_bright_cyan bg_none none
@@ -109,6 +134,8 @@ execute "highlight LineNr" fg_bright_black bg_none none
 highlight link LineNrAbove LineNr
 highlight link LineNrBelow LineNr
 execute "highlight CursorLineNr" fg_foreground bg_bright_black none
+highlight link CursorLineFold FoldColumn
+highlight link CursorLineSign SignColumn
 execute "highlight MatchParen" fg_foreground bg_background none
 execute "highlight MessageWindow" fg_foreground bg_none none
 execute "highlight ModeMsg" fg_white bg_none none
@@ -118,6 +145,10 @@ execute "highlight NonText" fg_bright_black bg_none none
 execute "highlight Normal" fg_white bg_black none
 execute "highlight Pmenu" fg_foreground bg_bright_black none
 execute "highlight PmenuSel" fg_foreground bg_blue none
+highlight link PmenuKind Pmenu
+highlight link PmenuKindSel PmenuSel
+highlight link PmenuExtra Pmenu
+highlight link PmenuExtraSel PmenuSel
 execute "highlight PmenuSbar" fg_foreground bg_background none
 execute "highlight PmenuThumb" fg_foreground bg_black none
 execute "highlight PopupNotification" fg_foreground bg_bright_black none
